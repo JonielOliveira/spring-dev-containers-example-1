@@ -1,0 +1,9 @@
+$kind: http-request
+url: "{{BASE_URL}}/usuario/:id"
+method: DELETE
+pathVariables:
+  id: "2"
+body:
+  type: json
+  content: ""
+order: 6000

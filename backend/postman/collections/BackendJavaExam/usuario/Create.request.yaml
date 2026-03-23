@@ -1,0 +1,26 @@
+$kind: http-request
+url: "{{BASE_URL}}/usuario"
+method: POST
+body:
+  type: json
+  content: "{\r
+
+    \    \"autorizacoes\": [\r
+
+    \        {\r
+
+    \            \"id\": 1,\r
+
+    \            \"nome\": \"ROLE_ADMIN\"\r
+
+    \        }\r
+
+    \    ],\r
+
+    \    \"nome\": \"joniel\",\r
+
+    \    \"senha\":
+    \"$2a$10$i3.Z8Yv1Fwl0I5SNjdCGkOTRGQjGvHjh/gMZhdc3e7LIovAklqM6C\"\r
+
+    }"
+order: 5000

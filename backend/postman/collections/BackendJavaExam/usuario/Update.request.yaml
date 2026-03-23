@@ -1,0 +1,29 @@
+$kind: http-request
+name: Update
+url: "{{BASE_URL}}/usuario/:id"
+method: PUT
+pathVariables:
+  id: "1"
+body:
+  type: json
+  content: "{\r
+
+    \    \"autorizacoes\": [\r
+
+    \        {\r
+
+    \            \"id\": 1,\r
+
+    \            \"nome\": \"ROLE_ADMIN\"\r
+
+    \        }\r
+
+    \    ],\r
+
+    \    \"nome\": \"joniel rodrigues\",\r
+
+    \    \"senha\":
+    \"$2a$10$i3.Z8Yv1Fwl0I5SNjdCGkOTRGQjGvHjh/gMZhdc3e7LIovAklqM6C\"\r
+
+    }"
+order: 4869
