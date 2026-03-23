@@ -59,5 +59,43 @@ public class UsuarioServiceImpl implements UsuarioService {
     public List<Usuario> buscarTodos() {
         return usuarioRepo.findAll();
     }
-    
+
+    @Override
+    public Usuario atualizar(Long id, Usuario usuario) {
+        if (id == null
+                || usuario == null
+                || usuario.getNome() == null
+                || usuario.getNome().isBlank()
+                || usuario.getSenha() == null
+                || usuario.getSenha().isBlank()) {
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Dados de usuário inválidos!");
+        }
+
+        Usuario existente = buscarPorId(id);
+
+        Set<Autorizacao> autorizacoes = new HashSet<Autorizacao>();
+        if (usuario.getAutorizacoes() != null) {
+            for (Autorizacao aut : usuario.getAutorizacoes()) {
+                if (aut.getId() == null) {
+                    throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Dados de autorização inválidos!");
+                }
+                autorizacoes.add(autorizacaoService.buscarPorId(aut.getId()));
+            }
+        }
+
+        existente.setNome(usuario.getNome());
+        existente.setSenha(usuario.getSenha());
+        existente.setAutorizacoes(autorizacoes);
+
+        return usuarioRepo.save(existente);
+    }
+
+    @Override
+    public void deletar(Long id) {
+        if(!usuarioRepo.existsById(id)) {
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Não existe usuário com esse id!");
+        }
+        usuarioRepo.deleteById(id);
+    }
+
 }

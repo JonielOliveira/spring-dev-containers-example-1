@@ -11,5 +11,9 @@ public interface UsuarioService {
     public Usuario buscarPorId(Long id);
 
     public List<Usuario> buscarTodos();
+
+    public Usuario atualizar(Long id, Usuario usuario);
+
+    public void deletar(Long id);
     
 }
