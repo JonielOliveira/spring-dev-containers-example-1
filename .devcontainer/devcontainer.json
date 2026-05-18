@@ -1,0 +1,26 @@
+{
+	"name": "Prova Backend (Java 17 & PostgreSQL 18)",
+	"dockerComposeFile": "docker-compose.yml",
+	"service": "app",
+	"workspaceFolder": "/workspaces/spring-dev-containers-example-1",
+	"shutdownAction": "stopCompose",
+	"remoteUser": "vscode",
+	"customizations": {
+		"vscode": {
+			"extensions": [
+			"Oracle.oracle-java",
+			"vscjava.vscode-java-pack",
+			"vmware.vscode-boot-dev-pack",
+			"mtxr.sqltools",
+			"mtxr.sqltools-driver-pg",
+			"GitHub.copilot-chat",
+			"openai.chatgpt"
+			]
+		},		
+		"jetbrains": {
+			"backend": "IntelliJ IDEA"
+		}
+	},
+	// "forwardPorts": [5432, 8080],
+	"postCreateCommand": "bash -lc 'java -version && if [ -f backend/mvnw ]; then chmod +x backend/mvnw && ./backend/mvnw -v; fi'"
+}

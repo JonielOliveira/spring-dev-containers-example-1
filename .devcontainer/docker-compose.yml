@@ -9,7 +9,7 @@ services:
     build: 
       context: .
       dockerfile: Dockerfile
-    working_dir: /workspaces/${localWorkspaceFolderBasename}
+    working_dir: /workspaces/spring-dev-containers-example-1
     ports:
     - "8888:8080"
     environment:
@@ -20,7 +20,7 @@ services:
         POSTGRES_HOSTNAME: db
 
     volumes:
-      - ../..:/workspaces/${localWorkspaceFolderBasename}:cached
+      - ..:/workspaces/spring-dev-containers-example-1:cached
       
     # Overrides default command so things don't shut down after the process ends.
     command: sleep infinity
