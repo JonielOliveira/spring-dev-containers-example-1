@@ -12,8 +12,6 @@ public interface UsuarioService {
 
     public List<Usuario> buscarTodos();
 
-    public Usuario atualizar(Long id, Usuario usuario);
-
-    public void deletar(Long id);
+    public List<Usuario> buscarPorNome(String nome);
     
 }
